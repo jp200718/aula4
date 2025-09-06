@@ -53,6 +53,10 @@
             cursor: pointer;
             color :hsl(213, 19%, 18%) ;
         }
+        &.active{
+            background-color: hsl(0, 100%, 100%);
+            color: hsl(213.33deg 18.67% 24.67%);
+        }
     }
 }
 .submit{

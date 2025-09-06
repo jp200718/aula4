@@ -47,8 +47,52 @@
       don’t hesitate to get in touch!
     </p>
 
+    <p class="text back" style="cursor: pointer;">
+      < go back
+    </p>
+
+    <!-- 
+      1. Rastrear a classe back 
+      2. event listener para o clique no back
+      3. esconder a final card
+      4. mostrar a card inicial
+     -->
+
   </section>
 
 </body>
 
+  
+  <script>
+    // JavaScript code
+
+    const buttons = document.querySelectorAll('.button');
+    const submit = document.querySelector('.submit');
+    const card = document.querySelector('.card');
+    const finalCard = document.querySelector('.final');
+    const selected = document.querySelector('.selected');
+    let rating = 0;
+ 
+
+    buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+        buttons.forEach((btn) => btn.classList.remove('active'));
+        button.classList.add('active');
+        rating = button.textContent;
+        console.log('o usuario selecionou ' + rating + '.');
+
+        // apresentar o rating selecionado com um texto no console no estilo 'O USUARIO SELECIONOU X'
+      });
+    });
+
+    submit.addEventListener('click', () => {
+      if (rating === 0) { //se
+        alert('Please select a rating before submitting.');
+      } else { // senao
+        card.style.display = 'none';
+        finalCard.style.display = 'block';
+        selected.textContent = `You selected ${rating} out of 5`;
+      }
+    });
+  </script>
 </html>
