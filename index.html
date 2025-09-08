@@ -66,7 +66,6 @@
   <script>
     // JavaScript code
     const back = document.querySelector('.back');
-    
     const buttons = document.querySelectorAll('.button');
     const submit = document.querySelector('.submit');
     const card = document.querySelector('.card');
@@ -76,22 +75,16 @@
  
 
     buttons.forEach((button) => {
-        back.addEventListener('click', () => {
-          finalCard.style.display = 'none';
-          card.style.display = 'block';
-          buttons.forEach((btn) => btn.classList.remove('active'));
-          rating = 0;
-        });
+       
         button.addEventListener('click', () => {
         buttons.forEach((btn) => btn.classList.remove('active'));
         button.classList.add('active');
         rating = button.textContent;
-        console.log('o usuario selecionou ' + rating + '.');
-
         // apresentar o rating selecionado com um texto no console no estilo 'O USUARIO SELECIONOU X'
+        console.log('o usuario selecionou ' + rating + '.');
       });
     });
-
+    
     submit.addEventListener('click', () => {
       if (rating === 0) { //se
         alert('Please select a rating before submitting.');
@@ -100,6 +93,12 @@
         finalCard.style.display = 'block';
         selected.textContent = `You selected ${rating} out of 5`;
       }
+    });
+    back.addEventListener('click', () => {
+      finalCard.style.display = 'none';
+      card.style.display = 'block';
+      buttons.forEach((btn) => btn.classList.remove('active'));
+      rating = 0;
     });
   </script>
 </html>
